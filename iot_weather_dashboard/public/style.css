@@ -1,0 +1,41 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+body { background-color: #eef2f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+
+.dashboard-card { background: #f8f9fa; width: 100%; max-width: 1050px; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); }
+
+/* Header */
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; }
+.city-weather-title { display: flex; align-items: center; gap: 15px; }
+.city-weather-title h1 { font-size: 32px; font-weight: 800; color: #1e293b; }
+.weather-icon-status { display: flex; align-items: center; gap: 6px; font-weight: 600; color: #475569; font-size: 18px; }
+.current-date { color: #64748b; font-size: 15px; margin-top: 4px; }
+
+.header-right { display: flex; align-items: center; gap: 15px; }
+.status-indicator { display: flex; align-items: center; gap: 8px; font-weight: 600; color: #64748b; font-size: 14px; }
+.status-dot { width: 10px; height: 10px; border-radius: 50%; background-color: #cbd5e1; }
+.status-dot.online { background-color: #22c55e; }
+.btn-sleep { background: #f97316; color: white; border: none; padding: 8px 16px; border-radius: 20px; font-weight: 600; cursor: pointer; }
+
+/* Main Layout */
+.main-content { display: grid; grid-template-columns: 320px 1fr; gap: 25px; }
+
+/* Left Column */
+.temp-hero { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+#mainTemp { font-size: 48px; font-weight: 800; color: #0f172a; }
+.mood-emoji { font-size: 50px; }
+
+.metrics-list { display: flex; flex-direction: column; gap: 12px; }
+.metric-item { background: #ffffff; border-radius: 14px; padding: 12px 18px; display: flex; align-items: center; gap: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+.metric-icon { font-size: 24px; }
+.metric-label { font-size: 13px; color: #64748b; margin-bottom: 2px; }
+.metric-val { font-size: 16px; font-weight: 700; color: #1e293b; }
+.location-container { display: flex; width: 100%; justify-content: space-between; align-items: center; }
+.btn-change { background: #ea580c; color: white; border: none; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; cursor: pointer; }
+
+/* Right Column */
+.right-col { background: #ffffff; border-radius: 16px; padding: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.02); display: flex; flex-direction: column; }
+.chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.chart-header h2 { font-size: 20px; color: #1e293b; font-weight: 700; }
+.range-selector label { font-size: 13px; color: #64748b; margin-right: 6px; }
+.range-selector select { padding: 4px 8px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 13px; }
+.chart-box { position: relative; height: 320px; width: 100%; }

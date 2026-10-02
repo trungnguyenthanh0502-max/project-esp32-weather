@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IoT Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard-card">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="city-weather-title">
+          <h1 id="headerCity">TP Hồ Chí Minh</h1>
+          <div class="weather-icon-status">
+            <span id="weatherIcon">⛅</span>
+            <span id="weatherText">Có mây</span>
+          </div>
+        </div>
+        <p class="current-date" id="currentDate">Thứ Tư, 22/10/2025</p>
+      </div>
+
+      <div class="header-right">
+        <div class="status-indicator">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="espStatusText">Connected (ESP32)</span>
+        </div>
+        <button id="sleepBtn" class="btn-sleep">Sleep LCD</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Left Column -->
+      <div class="left-col">
+        <div class="temp-hero">
+          <span id="mainTemp">--°C</span>
+          <span id="moodIcon" class="mood-emoji">😫</span>
+        </div>
+
+        <div class="metrics-list">
+          <div class="metric-item">
+            <span class="metric-icon">🌡️</span>
+            <div>
+              <p class="metric-label">Thấp/Cao</p>
+              <p class="metric-val" id="tempRange">-- / -- °C</p>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-icon">💧</span>
+            <div>
+              <p class="metric-label">Độ ẩm</p>
+              <p class="metric-val" id="humidityVal">--%</p>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-icon">⏲️</span>
+            <div>
+              <p class="metric-label">Áp suất</p>
+              <p class="metric-val" id="pressureVal">-- hPa</p>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <span class="metric-icon">📍</span>
+            <div class="location-container">
+              <div>
+                <p class="metric-label">Vị trí</p>
+                <p class="metric-val" id="locationCity">TP Hồ Chí Minh</p>
+              </div>
+              <button id="changeCityBtn" class="btn-change">Đổi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Chart -->
+      <div class="right-col">
+        <div class="chart-header">
+          <h2>Temperature and humidity chart</h2>
+          <div class="range-selector">
+            <label for="timeRange">Khoảng thời gian:</label>
+            <select id="timeRange">
+              <option value="15m">15 phút</option>
+              <option value="1h">1 giờ</option>
+              <option value="6h" selected>6 giờ</option>
+              <option value="12h">12 giờ</option>
+              <option value="1d">1 ngày</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="chart-box">
+          <canvas id="weatherChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

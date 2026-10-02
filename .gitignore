@@ -1,0 +1,4 @@
+iot_weather_dashboard/node_modules/
+iot_weather_dashboard/.env
+.pio/
+build/
