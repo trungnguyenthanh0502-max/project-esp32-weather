@@ -17,13 +17,7 @@
 #define DHTTYPE   DHT11
 
 // ----------- Cấu hình WiFi & MQTT Broker ---------------
-#define WIFI_SSID       "Amelie Cafe"
-#define WIFI_PASS       "Tu1toi7i"
-#define MQTT_SERVER     "172.20.10.8"
-#define MQTT_PORT       1883
-#define MQTT_USER       ""
-#define MQTT_PASS       ""
-#define MQTT_CLIENT_ID  "ESP32_CLIENT"
+
 
 #define MQTT_TOPIC_DATA "home/sensor/data"
 #define MQTT_TOPIC_CMD  "iot/house/commands"

@@ -7,7 +7,7 @@
 #include <PubSubClient.h>
 #include <NTPClient.h>
 #include <WiFiUdp.h>
-
+#include "secrets.h"
 // Định nghĩa dữ liệu toàn cục
 SensorData globalSensorData = {0.0f, 0.0f, 0.0f, 0};
 SemaphoreHandle_t dataMutex = NULL;
@@ -15,8 +15,7 @@ SemaphoreHandle_t tftMutex = NULL;
 QueueHandle_t mqttQueue = NULL;
 TaskHandle_t taskWeatherHandle = NULL;
 
-String apiKey = "0330385652a1caa68bad5178ea485f60";
-String city = "Ho Chi Minh";
+
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org", 25200);
