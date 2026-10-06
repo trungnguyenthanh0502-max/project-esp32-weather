@@ -6,7 +6,10 @@ The project consists of decoupled components:
 - **`mini_iot_weather_station/`** — embedded firmware running on ESP32 (PlatformIO).
 - **`telegraf.conf`** — Telegraf agent configuration for the ETL pipeline (MQTT to InfluxDB).
 - **`iot_weather_dashboard/`** — Node.js backend + web dashboard, serving APIs and querying InfluxDB.
-1. Architecture OverviewPlaintext                            ┌──────────────────────────┐                 ┌──────────────────────────┐ 
+## 1. Architecture Overview
+
+```text
+┌──────────────────────────┐                 ┌──────────────────────────┐
 │    ESP32 (Sensors)       │                 │       Node.js Server     │
 │ - FreeRTOS Multitasking  │                 │ - Express / REST API     │
 │ - Read DHT11, BMP180     │                 │ - Handle CORS            │
@@ -27,6 +30,7 @@ The project consists of decoupled components:
                        │ - Parse JSON & Rename    │
                        │ - Buffer & Flush (10s)   │
                        └──────────────────────────┘
+```
 The system runs 4 FreeRTOS tasks in parallel on the ESP32, synchronizing shared data through mutexes (Semaphores) and a queue, pinned across the chip's 2 physical cores to balance load and prevent one task from starving the others. On the backend, the data pipeline is strictly decoupled: Telegraf handles data ingestion (subscribing to MQTT and writing to InfluxDB), while the Node.js service (server.js) focuses on querying data and displaying it through a web dashboard (public/).
 
 2. Knowledge & Skills Applied
