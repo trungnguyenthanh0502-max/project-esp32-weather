@@ -100,7 +100,9 @@ Writing the backend using ES Modules ("type": "module" in package.json, import/e
 
 Writing a sensor simulator script (sim_sensor.js) to test the MQTT → Telegraf → InfluxDB → dashboard data flow independently, without needing real hardware — applying a testable, decoupled architecture mindset.
 
-3. Project Structure
+## 3. Project Structure
+
+```text
 project esp32 weather/
 │
 ├── mini_iot_weather_station/        # Embedded firmware (PlatformIO)
@@ -128,19 +130,24 @@ project esp32 weather/
 │
 ├── telegraf_example.conf            # Safe configuration template for the Telegraf agent
 └── .gitignore                       # Root gitignore (excludes telegraf.conf)
-4. Hardware Used
-Component	                         Model	                       Interface
-Microcontroller	               ESP32-WROOM-32 (DevKitC)	                —
-Display	                       ST7735 1.44" 128×128 RGB TFT	           SPI
-Temperature/Humidity sensor	        DHT11	                         1-wire
-Pressure sensor	                    BMP180	                          I2C
-5. Libraries & Technologies Used
-Firmware (ESP32 / PlatformIO):
-Adafruit_GFX, Adafruit_ST7735, Adafruit_BMP085_Unified, Adafruit_Sensor, DHT, PubSubClient, ArduinoJson, NTPClient, WiFiClientSecure, HTTPClient — all running on the ESP32 Arduino Core.
+```
 
-Data Pipeline & Backend (Telegraf, Node.js, ES Modules):
-Telegraf (MQTT consumer, InfluxDB v2 output), express (HTTP server serving the dashboard and REST endpoints), mqtt (Node.js MQTT client for commands), @influxdata/influxdb-client (querying time-series data), dotenv (loading environment variables from .env), cors.
+## 4. Hardware Used
 
+| Component | Model | Interface |
+|---|---|---|
+| Microcontroller | ESP32-WROOM-32 (DevKitC) | — |
+| Display | ST7735 1.44" 128×128 RGB TFT | SPI |
+| Temperature/Humidity sensor | DHT11 | 1-wire |
+| Pressure sensor | BMP180 | I2C |
+
+## 5. Libraries & Technologies Used
+
+**Firmware (ESP32 / PlatformIO):**
+`Adafruit_GFX`, `Adafruit_ST7735`, `Adafruit_BMP085_Unified`, `Adafruit_Sensor`, `DHT`, `PubSubClient`, `ArduinoJson`, `NTPClient`, `WiFiClientSecure`, `HTTPClient` — all running on the **ESP32 Arduino Core**.
+
+**Data Pipeline & Backend (Telegraf, Node.js, ES Modules):**
+`Telegraf` (MQTT consumer, InfluxDB v2 output), `express` (HTTP server serving the dashboard and REST endpoints), `mqtt` (Node.js MQTT client for commands), `@influxdata/influxdb-client` (querying time-series data), `dotenv` (loading environment variables from `.env`), `cors`.
 6. Build & Run Instructions
 Firmware (ESP32):
 
