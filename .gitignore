@@ -3,3 +3,4 @@ iot_weather_dashboard/.env
 .pio/
 build/
 secrets.h
+telegraf.conf
