@@ -138,14 +138,20 @@ pio pkg install
 
 # Build & upload the firmware
 pio run -t upload
-Data Ingestion (Telegraf):
+```
+
+**Data Ingestion (Telegraf):**
+```bash
 # Copy the configuration template
 cp telegraf_example.conf telegraf.conf
 
 # Add your real InfluxDB Token and MQTT IP to telegraf.conf
 # Run the Telegraf agent
 telegraf --config telegraf.conf
-Dashboard (Node.js):
+```
+
+**Dashboard (Node.js):**
+```bash
 cd iot_weather_dashboard
 
 # Install dependencies
@@ -154,7 +160,10 @@ npm install
 # Create a .env file (InfluxDB token, MQTT broker host, etc.)
 # Run the server
 node server.js
-Note: An MQTT broker (Mosquitto) must be running on the same LAN as the ESP32 and the machine running the dashboard/Telegraf, with its IP address configured across secrets.h, .env, and telegraf.conf.
+```
+
+*Note: An MQTT broker (Mosquitto) must be running on the same LAN as the ESP32 and the machine running the dashboard/Telegraf, with its IP address configured across `secrets.h`, `.env`, and `telegraf.conf`.*
+
 ## 7. Future Improvements
 
 - Add OTA (Over-The-Air) update support so firmware can be updated without a USB cable.
